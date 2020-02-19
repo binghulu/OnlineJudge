@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int l, h;
+    int previous, blockheight;
+    int counter;
+    while (scanf("%d %d", &h, &l) != EOF){
+        if (h == 0) break;
+        previous = h;
+        counter = 0;
+        for (int i = 0; i < l; i++){
+            cin >> blockheight;
+            if (previous > blockheight){
+                counter += previous - blockheight;
+            }
+            previous = blockheight;
+        }
+        cout << counter << endl;
+    }
+    return 0;
+}
