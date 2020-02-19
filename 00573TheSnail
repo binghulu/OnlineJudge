@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int H, U, D, F;
+    double distance, day, pos, fatigue;
+    while (scanf("%d %d %d %d", &H, &U, &D, &F) != EOF){
+        if (H == 0) return 0;
+        pos = 0;
+        distance = U;
+        day = 0;
+        fatigue = distance*F/100;
+        while (pos >= 0 || pos >= H){
+            day++;
+            //cout << "Day: " << day << " ";
+            //cout << "new distance travelled: " << distance << " ";
+            pos += distance;
+            //cout << "Pos: " << pos << " ";
+            if (distance - fatigue < 0) distance = 0;
+            else distance -= fatigue;
+
+            if (pos > H){
+                cout << "success on day " << day << endl;
+                break;
+            }
+            pos -= D;
+            if (pos < 0){
+                cout << "failure on day " << day << endl;
+                break;
+            }
+            //cout << "Pos after slide: " << pos << endl;
+        }
+    }
+    return 0;
+}
