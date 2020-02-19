@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int N;
+    int n, clown, kid;
+    cin >> N;
+    for (int i = 1; i <= N; i++){
+        cin >> n;
+        clown = 0;
+        for (int j = 0; j < n; j++){
+            cin >> kid;
+            if (kid > clown) clown = kid;
+        }
+        cout << "Case " << i << ": " << clown << endl;
+    }
+}
