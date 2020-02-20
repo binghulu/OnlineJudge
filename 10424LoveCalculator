@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+int main(){
+    string n1, n2;
+    int sum1, sum2;
+    double ratios;
+
+    while (getline(cin, n1)){
+        getline(cin, n2);
+        sum1 = 0;
+        sum2 = 0;
+        for (int i = 0; i < n1.size(); i++){
+            if (n1[i] >= 'A' && n1[i] <= 'Z'){
+                sum1 += n1[i]-'A'+1;
+            }
+            else if (n1[i] >= 'a' && n1[i] <= 'z'){
+                sum1 += n1[i]-'a'+1;
+            }
+        }
+        if (sum1 % 9 == 0) sum1 = 9;
+        else sum1 = sum1 % 9;
+        //cout << sum1 << endl;
+
+        for (int i = 0; i < n2.size(); i++){
+            if (n2[i] >= 'A' && n2[i] <= 'Z'){
+                sum2 += n2[i]-'A'+1;
+            }
+            else if (n2[i] >= 'a' && n2[i] <= 'z'){
+                sum2 += n2[i]-'a'+1;
+            }
+        }
+        if (sum2 % 9 == 0) sum2 = 9;
+        else sum2 = sum2 % 9;
+        //cout << sum2 << endl;
+
+        if (sum1 < sum2) ratios = double(sum1)/double(sum2)*100;
+        else ratios = double(sum2)/double(sum1)*100;
+
+        printf("%.2f %%\n", ratios);
+    }
+    return 0;
+}
+
