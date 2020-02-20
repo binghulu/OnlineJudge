@@ -1,0 +1,31 @@
+#include<iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string s;
+    int n, fvalue, svalue;
+    bool same;
+    int counter=0;
+    while(cin >> s) {
+        counter++;
+        cin >> n;
+        cout << "Case " << counter << ":" << endl;
+        for(int i=0; i < n; i++) {
+            cin >> fvalue >> svalue;
+            same = 0;
+            for(int i = min(fvalue, svalue); i < max(fvalue, svalue); i++) {
+                if(s[i]==s[i+1])
+                  continue;
+                else {
+                    same = 1;
+                    break;
+                }
+            }
+            if(same == 0) cout << "Yes" << endl;
+            else cout << "No" << endl;
+        }
+    }
+    return 0;
+}
