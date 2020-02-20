@@ -10,7 +10,7 @@ int main(){
         distance = U;
         day = 0;
         fatigue = distance*F/100;
-        while (pos >= 0 || pos >= H){
+        while (pos >= 0 || pos <= H){
             day++;
             //cout << "Day: " << day << " ";
             //cout << "new distance travelled: " << distance << " ";
