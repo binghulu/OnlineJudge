@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+    int length;
+    string n;
+    int rpos, dpos;
+    int shortest, distance;
+    while (cin >> length){
+        if (length == 0) break;
+        cin >> n;
+        shortest = 20000001;
+        rpos = -1;
+        dpos = -1;
+        for (int i = 0; i < length; i++){
+            if (n[i] == 'Z'){
+                shortest = 0;
+                break;
+            }
+            else if (n[i] == 'R'){
+                rpos = i;
+                if (dpos != -1){
+                    distance = abs(dpos-rpos);
+                    if (distance < shortest) shortest = distance;
+                }
+            }
+            else if (n[i] == 'D'){
+                dpos = i;
+                if (rpos != -1){
+                    distance = abs(dpos-rpos);
+                    if (distance < shortest) shortest = distance;
+                }
+            }
+        }
+        cout << shortest << endl;
+    }
+    return 0;
+}
